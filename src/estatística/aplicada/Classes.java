@@ -154,20 +154,27 @@ public class Classes {
 		}
 		Media = Media / n;
 	}
-	
-	public float getMedia(){
+
+	public float getMedia() {
 		return Media;
 	}
 
 	public void setMediana(int n) {
+		//boolean vdd = false;
 		float j = (float) n / 2;
 		int aux = 0;
 		for (int i = 0; i <= (int) K; i++) {
 			if (j <= tab[i].getFac() && i != 0) {
-				faca = tab[i - 1].getFac();
+				faca = tab[i-1].getFac();
 				aux = i;
+			//	vdd = true;
 				break;
 			}
+			/*if (vdd != false) {
+				faca = tab[i-1].getFac();
+				aux = i;
+				break;
+			}*/
 		}
 
 		Mediana = (tab[aux].getLi()) + ((j - faca) * c) / tab[aux].getFi();
@@ -231,7 +238,8 @@ public class Classes {
 
 		}
 		DecimalFormat df = new DecimalFormat("#00.0");
-		System.out.println("    Total     |        |  "+df.format(n)+"  |        |     "+df.format(varianciaTotal));
+		System.out
+				.println("    Total     |        |  " + df.format(n) + "  |        |     " + df.format(varianciaTotal));
 
 	}
 

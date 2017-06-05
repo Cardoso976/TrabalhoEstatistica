@@ -10,7 +10,7 @@ public class Principal {
 		int key=0;
 
 		do {
-			System.out.println("1. Dados Discretos.\n2. Dados Discretos Não Tabelados\n3. Dados Contínuos.\n4. Sair.");
+			System.out.println("1. Dados Discretos Não Tabelados.\n2. Dados Discretos Tabelados\n3. Dados Contínuos.\n4. Sair.");
 			key = 0;
 			key = leia.nextInt();
 
@@ -41,12 +41,23 @@ public class Principal {
 				int n2 = leia.nextInt();
 				System.out.println("Digite os dados ->");
 				int dado1;
-				Classes cla = new Classes();
-				for (int i = 0; i < n2; i++) {
-					dado1 = leia.nextInt();					
-					cla.setDados(dado1, n2);
+				DadosDiscretosTabelados ddt = new DadosDiscretosTabelados();
+				for(int i = 0; i<n2; i++){
+					dado1 = leia.nextInt();
+					ddt.setDados(dado1, n2);
 				}
-				leia.nextLine();				
+				leia.nextLine();
+				
+				
+				ddt.montarTabela();
+				ddt.setFac();
+				ddt.setMedia(n2);
+				ddt.setVariancia(n2);
+				ddt.setMediana(n2);
+				ddt.getTabela(n2);
+				System.out.printf("Media -> %.2f\n", ddt.getMedia());
+				System.out.printf("Mediana -> %.2f\n", ddt.getMediana());
+				System.out.printf("Desvio Padrão -> %.2f\n", ddt.desvioPadrao());
 				
 				break;
 
